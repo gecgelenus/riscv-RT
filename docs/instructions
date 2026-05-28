@@ -1,0 +1,48 @@
+ADDI +
+SLTI +
+SLTIU +
+ANDI +
+ORI +
+XORI +
+SLLI +
+SRLI +
+SRAI +
+
+LUI +
+AUIPC +
+
+ADD +
+SUB + 
+SLT +
+SLTU +
+AND +
+OR +
+XOR +
+SLL +
+SRL +
+SRA +
+
+JAL
+JALR
+
+BEQ
+BNE
+BLT
+BLTU
+BGE
+BGEU
+
+LOAD
+STORE
+LW +
+LH +
+LHU +
+LB +
+LBU +
+SW +
+SH +
+SB +
+
+FENCE
+
+

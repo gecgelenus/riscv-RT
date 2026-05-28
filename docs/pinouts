@@ -1,0 +1,14 @@
+CPU ----
+
+CLK input
+
+32 bit input IRAM
+32 bit output IRAM
+4 bit control
+
+32 bit input DRAM
+32 bit output DRAM
+4 bit control
+
+
+
