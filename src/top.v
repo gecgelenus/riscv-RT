@@ -1,5 +1,6 @@
 module top(
-    input wire clk
+    input wire clk,
+    output reg [31:0] GPIO
 );
 
 
@@ -55,7 +56,8 @@ RAM_data DRAM(
     .out(data_mem_out),
     .we(data_mem_we),
     .data_width(data_mem_width),
-    .sign(data_mem_sign)
+    .sign(data_mem_sign),
+    .GPIO(GPIO)
 );
 
 register_file reg_file(

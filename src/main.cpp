@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
     // Trace setup
     Verilated::traceEverOn(true);
     VerilatedVcdC* tfp = new VerilatedVcdC;
-    top->trace(tfp, 99);
+    top->trace(tfp, 10000);
     tfp->open("trace.vcd");
 
     uint64_t ticks = 0;
@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 
 
 
-    while (ticks < 1000) { 
+    while (ticks < 10000) { 
         top->clk = !top->clk;
 
 

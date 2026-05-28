@@ -30,6 +30,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
     CData/*0:0*/ __VactContinue;
+    VL_OUT(GPIO,31,0);
     IData/*31:0*/ top__DOT__PC;
     IData/*31:0*/ top__DOT__data_in;
     IData/*31:0*/ top__DOT__data_out;

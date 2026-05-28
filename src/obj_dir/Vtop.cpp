@@ -11,6 +11,7 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     : VerilatedModel{*_vcontextp__}
     , vlSymsp{new Vtop__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
+    , GPIO{vlSymsp->TOP.GPIO}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

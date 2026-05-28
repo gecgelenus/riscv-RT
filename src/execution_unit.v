@@ -26,7 +26,7 @@ module execution_unit(
     output reg [31:0] jump_addr
 );
 
-wire [31:0] target_addr = rs0+immediate;
+wire [31:0] target_addr = $signed(rs0)+$signed(immediate);
 
 
     always @(*) begin
@@ -35,6 +35,7 @@ wire [31:0] target_addr = rs0+immediate;
         mem_we = 0;
         mem_out = 0;
         jump_en = 0;
+        mem_addr = 0;
 
     if(ins_ready == 1) begin
             case(exec_type)
@@ -164,7 +165,7 @@ wire [31:0] target_addr = rs0+immediate;
                     reg_addr = rd_addr;
                     reg_width = `SIZE_BYTE;
 
-                    mem_addr = rs0+immediate[31:20];
+                    mem_addr = rs0+$signed(immediate[31:20]);
                     mem_width = `SIZE_BYTE;
                     mem_sign = 1;
 
@@ -176,7 +177,7 @@ wire [31:0] target_addr = rs0+immediate;
                     reg_addr = rd_addr;
                     reg_width = `SIZE_BYTE;
 
-                    mem_addr = rs0+immediate[31:20];
+                    mem_addr = rs0+$signed(immediate[31:20]);
                     mem_width = `SIZE_BYTE;
                     mem_sign = 0;
 
@@ -187,7 +188,7 @@ wire [31:0] target_addr = rs0+immediate;
                     reg_addr = rd_addr;
                     reg_width = `SIZE_HALF_WORD;
 
-                    mem_addr = rs0+immediate[31:20];
+                    mem_addr = rs0+$signed(immediate[31:20]);
                     mem_width = `SIZE_HALF_WORD;
                     mem_sign = 1;
 
@@ -208,7 +209,7 @@ wire [31:0] target_addr = rs0+immediate;
                     reg_addr = rd_addr;
                     reg_width = `SIZE_WORD;
 
-                    mem_addr = rs0+immediate[31:20];
+                    mem_addr = $signed(rs0)+$signed(immediate[31:20]);
                     mem_width = `SIZE_WORD;
                     mem_sign = 0;
                 end
@@ -242,7 +243,7 @@ wire [31:0] target_addr = rs0+immediate;
 
                     reg_width = `SIZE_BYTE;
 
-                    mem_addr = rs0+immediate;
+                    mem_addr = rs0+$signed(immediate[11:0]);
                     mem_width = `SIZE_BYTE;
                     mem_sign = 0;
                 end
@@ -264,7 +265,7 @@ wire [31:0] target_addr = rs0+immediate;
 
                     reg_width = `SIZE_HALF_WORD;
 
-                    mem_addr = rs0+immediate;
+                    mem_addr = rs0+$signed(immediate[11:0]);
                     mem_width = `SIZE_HALF_WORD;
                     mem_sign = 0;
                 end
@@ -274,7 +275,7 @@ wire [31:0] target_addr = rs0+immediate;
                     mem_out = rs1;
                     reg_width = `SIZE_WORD;
 
-                    mem_addr = rs0+immediate;
+                    mem_addr = $signed(rs0)+$signed(immediate[11:0]);
                     mem_width = `SIZE_WORD;
                     mem_sign = 0;
                     mem_we = 4'b1111;

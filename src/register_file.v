@@ -18,12 +18,6 @@ module register_file(
 
     reg [31:0] regs [31:0];
 
-    initial begin
-        regs[5'h03] = 32'hF0F0FFF1;
-        regs[5'h04] = 32'hF0F0FFF1;
-        regs[5'h05] = 32'd32;
-    end
-
 
     assign rs0_data = (rs0_addr == 5'b0) ? 32'b0 : regs[rs0_addr];
     assign rs1_data = (rs1_addr == 5'b0) ? 32'b0 : regs[rs1_addr];

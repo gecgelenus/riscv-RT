@@ -76,7 +76,7 @@ always @(*) begin
         `I_TYPE: begin
 
 
-            immediate = fd_ins[31:20];
+            immediate = {{20{fd_ins[31]}}, fd_ins[31:20]};
             case(fd_ins[`FUNC_3]) 
                 `FUNC_3_ADD: begin
                     exec_type = `EXEC_ADDI;
@@ -156,7 +156,7 @@ always @(*) begin
         end
 
         `M_TYPE_STORE: begin
-            immediate = {{20{1'b0}},{fd_ins[31:25]},{fd_ins[11:7]}};
+            immediate = {{20{fd_ins[31]}},{fd_ins[31:25]},{fd_ins[11:7]}};
 
             case(fd_ins[`FUNC_3]) 
                 `FUNC_3_BYTE: begin
