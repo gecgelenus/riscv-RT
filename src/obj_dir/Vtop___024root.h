@@ -15,7 +15,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
 
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
-    CData/*4:0*/ top__DOT__exec_type;
+    CData/*5:0*/ top__DOT__exec_type;
     CData/*0:0*/ top__DOT__reg_we;
     CData/*2:0*/ top__DOT__data_mem_width;
     CData/*3:0*/ top__DOT__data_mem_we;
@@ -23,6 +23,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*0:0*/ top__DOT__data_mem_reg_we;
     CData/*4:0*/ top__DOT__data_mem_reg_addr;
     CData/*2:0*/ top__DOT__data_mem_reg_width;
+    CData/*0:0*/ top__DOT__jump_en;
+    CData/*0:0*/ top__DOT__ins_ready;
     CData/*3:0*/ top__DOT__ins_we;
     CData/*3:0*/ top__DOT__data_we;
     CData/*0:0*/ __VstlFirstIteration;
@@ -41,6 +43,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     IData/*31:0*/ top__DOT__data_mem_addr;
     IData/*31:0*/ top__DOT__data_mem_in;
     IData/*31:0*/ top__DOT__data_mem_out;
+    IData/*31:0*/ top__DOT__jump_addr;
+    IData/*31:0*/ top__DOT__FU__DOT__PC;
     IData/*31:0*/ top__DOT__EU__DOT__target_addr;
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<IData/*31:0*/, 256> top__DOT__DRAM__DOT__mem;

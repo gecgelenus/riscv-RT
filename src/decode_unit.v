@@ -3,7 +3,7 @@
 module decode_unit(
     input wire clk,
     input wire [31:0] fd_ins,
-    output reg [4:0] exec_type,
+    output reg [5:0] exec_type,
     output wire [4:0] rs0,
     output wire [4:0] rs1,
     output wire [4:0] rd,
@@ -173,6 +173,48 @@ always @(*) begin
 
             endcase
         end
+
+        `J_TYPE_OFFSET: begin
+            immediate = { {12{fd_ins[31]}}, fd_ins[31], fd_ins[19:12], fd_ins[20], fd_ins[30:21], 1'b0 };
+            exec_type = `EXEC_JUMP_OFFSET;
+        end
+
+        `J_TYPE_REG: begin
+            immediate = {{20{fd_ins[31]}}, fd_ins[31:20]};
+            exec_type = `EXEC_JUMP_REG;
+        end
+
+        `B_TYPE: begin
+            immediate = { {20{fd_ins[31]}}, fd_ins[31], fd_ins[7], fd_ins[30:25], fd_ins[11:8], 1'b0 };
+
+            case(fd_ins[`FUNC_3]) 
+                `FUNC_3_BEQ: begin
+                    exec_type = `EXEC_BEQ;
+                end
+
+                `FUNC_3_BNE: begin
+                    exec_type = `EXEC_BNE;
+                end
+
+                `FUNC_3_BLT: begin
+                    exec_type = `EXEC_BLT;
+                end
+
+                `FUNC_3_BLTU: begin
+                    exec_type = `EXEC_BLTU;
+                end
+
+                `FUNC_3_BGE: begin
+                    exec_type = `EXEC_BGE;
+                end
+
+                `FUNC_3_BGEU: begin
+                    exec_type = `EXEC_BGEU;
+                end
+
+            endcase
+        end
+
 
         default:begin
             exec_type = `EXEC_NOP;

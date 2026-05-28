@@ -5,6 +5,13 @@
 `define M_TYPE_LOAD 7'b0000011
 `define M_TYPE_STORE 7'b0100011
 
+`define J_TYPE_OFFSET 7'b1101111
+`define J_TYPE_REG 7'b1100111
+
+`define B_TYPE 7'b1100011
+
+
+
 
 `define SIZE_BYTE 2'b00
 `define SIZE_HALF_WORD 2'b01
@@ -47,6 +54,12 @@
 `define FUNC_3_BYTE_U 3'b100
 `define FUNC_3_HALF_WORD_U 3'b101
 
+`define FUNC_3_BEQ 3'b000
+`define FUNC_3_BNE 3'b001
+`define FUNC_3_BLT 3'b100
+`define FUNC_3_BLTU 3'b110
+`define FUNC_3_BGE 3'b101
+`define FUNC_3_BGEU 3'b111
 
 
 
@@ -58,45 +71,62 @@
 
 
 
-`define EXEC_ADD 5'b00000
-`define EXEC_SUB 5'b00001
-
-`define EXEC_CMP 5'b00010
-`define EXEC_CMPU 5'b00011
-
-`define EXEC_AND 5'b00100
-`define EXEC_OR 5'b00101
-`define EXEC_XOR 5'b00110
-
-`define EXEC_SLL 5'b00111
-`define EXEC_SRL 5'b01000
-`define EXEC_SRA 5'b01001
-
-`define EXEC_ADDI 5'b01010
-`define EXEC_CMPI 5'b01011
-`define EXEC_CMPIU 5'b01100
-`define EXEC_ANDI 5'b01101
-`define EXEC_ORI 5'b01110
-`define EXEC_XORI 5'b01111
-
-`define EXEC_SLLI 5'b10000
-`define EXEC_SRLI 5'b10001
-`define EXEC_SRAI 5'b10010
-
-`define EXEC_LUI 5'b10011
-`define EXEC_AUIPC 5'b10100
 
 
-`define EXEC_STORE_BYTE 5'b10101
-`define EXEC_STORE_HALF_WORD 5'b10110
-`define EXEC_STORE_WORD 5'b10111
 
-`define EXEC_LOAD_BYTE 5'b11000
-`define EXEC_LOAD_HALF_WORD 5'b11001
-`define EXEC_LOAD_WORD 5'b11010
 
-`define EXEC_LOAD_BYTE_U 5'b11011
-`define EXEC_LOAD_HALF_WORD_U 5'b11100
+
+`define EXEC_ADD 6'b000000
+`define EXEC_SUB 6'b000001
+
+`define EXEC_CMP 6'b000010
+`define EXEC_CMPU 6'b000011
+
+`define EXEC_AND 6'b000100
+`define EXEC_OR 6'b000101
+`define EXEC_XOR 6'b000110
+
+`define EXEC_SLL 6'b000111
+`define EXEC_SRL 6'b001000
+`define EXEC_SRA 6'b001001
+
+`define EXEC_ADDI 6'b001010
+`define EXEC_CMPI 6'b001011
+`define EXEC_CMPIU 6'b001100
+`define EXEC_ANDI 6'b001101
+`define EXEC_ORI 6'b001110
+`define EXEC_XORI 6'b001111
+
+`define EXEC_SLLI 6'b010000
+`define EXEC_SRLI 6'b010001
+`define EXEC_SRAI 6'b010010
+
+`define EXEC_LUI 6'b010011
+`define EXEC_AUIPC 6'b010100
+
+
+`define EXEC_STORE_BYTE 6'b010101
+`define EXEC_STORE_HALF_WORD 6'b010110
+`define EXEC_STORE_WORD 6'b010111
+
+`define EXEC_LOAD_BYTE 6'b011000
+`define EXEC_LOAD_HALF_WORD 6'b011001
+`define EXEC_LOAD_WORD 6'b011010
+
+`define EXEC_LOAD_BYTE_U 6'b011011
+`define EXEC_LOAD_HALF_WORD_U 6'b011100
+
+`define EXEC_JUMP_OFFSET 6'b011101
+`define EXEC_JUMP_REG 6'b011110
+
+`define EXEC_BEQ 6'b100000
+`define EXEC_BNE 6'b100001
+`define EXEC_BLT 6'b100010
+`define EXEC_BLTU 6'b100011
+`define EXEC_BGE 6'b100100
+`define EXEC_BGEU 6'b110101
+
+
 
 
 

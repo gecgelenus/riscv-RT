@@ -22,15 +22,15 @@ SLL +
 SRL +
 SRA +
 
-JAL
-JALR
+JAL +
+JALR +
 
-BEQ
-BNE
-BLT
-BLTU
-BGE
-BGEU
+BEQ +
+BNE +
+BLT +
+BLTU +
+BGE +
+BGEU +
 
 LOAD
 STORE

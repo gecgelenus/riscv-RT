@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     Verilated::traceEverOn(true);
     VerilatedVcdC* tfp = new VerilatedVcdC;
     top->trace(tfp, 99);
-    tfp->open("uart_trace.vcd");
+    tfp->open("trace.vcd");
 
     uint64_t ticks = 0;
     
