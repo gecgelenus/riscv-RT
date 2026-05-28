@@ -6,7 +6,7 @@ module RAM(
     output reg [31:0] out
 );
 
-reg [31:0] mem [0:255];
+reg [31:0] mem [0:32];
 
 wire [7:0] word_addr = addr[9:2];
 

@@ -21,10 +21,10 @@ module fetch_unit(
     always @(posedge clk) begin
         if(jump_en == 1) begin
             PC <= jump_addr;
-            ins_ready = 0;
+            ins_ready <= 0;
         end else begin
             PC <= PC+4;
-            ins_ready = 1;
+            ins_ready <= 1;
         end
     end
 

@@ -15,6 +15,9 @@ assign rs1 = fd_ins[`RS1];
 assign rd = fd_ins[`RD];
 
 always @(*) begin
+    exec_type = `EXEC_NOP;
+    immediate = 0;
+
     case (fd_ins[6:0])
         `R_TYPE: begin
             
@@ -44,10 +47,6 @@ always @(*) begin
 
                 `FUNC_3_OR: begin
                     exec_type = `EXEC_OR;
-                end
-
-                `FUNC_3_XOR: begin
-                    exec_type = `EXEC_XOR;
                 end
 
                 `FUNC_3_XOR: begin
@@ -113,7 +112,9 @@ always @(*) begin
                         exec_type = `EXEC_SRLI;
                     end
                 end
-
+                default: begin
+                    exec_type = `EXEC_NOP;
+                end
             
             endcase
         end
@@ -152,6 +153,10 @@ always @(*) begin
                     exec_type = `EXEC_LOAD_WORD;
                 end
 
+                default: begin
+                    exec_type = `EXEC_NOP;
+                end
+
             endcase
         end
 
@@ -169,6 +174,10 @@ always @(*) begin
 
                 `FUNC_3_WORD: begin
                     exec_type = `EXEC_STORE_WORD;
+                end
+
+                default: begin
+                    exec_type = `EXEC_NOP;
                 end
 
             endcase
@@ -211,7 +220,9 @@ always @(*) begin
                 `FUNC_3_BGEU: begin
                     exec_type = `EXEC_BGEU;
                 end
-
+                default: begin
+                    exec_type = `EXEC_NOP;
+                end
             endcase
         end
 

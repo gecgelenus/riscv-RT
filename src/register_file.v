@@ -11,12 +11,10 @@ module register_file(
     input wire mem_we,
     input wire [4:0] reg_addr,
     input wire [2:0] data_width,
-    input wire [31:0] mem_in,
-
-
+    input wire [31:0] mem_in
 );
 
-    reg [31:0] regs [31:0];
+   reg [31:0] regs [31:0];
 
 
     assign rs0_data = (rs0_addr == 5'b0) ? 32'b0 : regs[rs0_addr];

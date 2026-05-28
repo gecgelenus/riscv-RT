@@ -1,3 +1,5 @@
+`include "defines.v"
+
 module RAM_data(
     input wire clk,
     input wire sign,
@@ -10,13 +12,13 @@ module RAM_data(
     output reg [31:0] GPIO
 );
 
-reg [31:0] mem [0:255];
+reg [31:0] mem [0:63];
 
 wire [7:0] word_addr = addr[9:2];
 
 
 
-wire is_mmio_addr = (addr >= 32'h400);
+wire is_mmio_addr = (addr >= 32'h100);
 
 always @(*) begin
     out = 32'b0; 
@@ -39,6 +41,10 @@ always @(*) begin
             2'b11: begin
                 out[7:0] = mem[word_addr][31:24];
             end
+
+            default: begin
+                out[7:0] = mem[word_addr][31:24];
+            end
         endcase
 
         if(sign == 1)begin
@@ -46,9 +52,7 @@ always @(*) begin
         end else begin
             out[31:8] = 24'b0;
         end
-    end
-
-    if(data_width == `SIZE_HALF_WORD) begin
+    end else if(data_width == `SIZE_HALF_WORD) begin
 
 
         case(addr[1])
@@ -59,6 +63,9 @@ always @(*) begin
             1'b1: begin
                 out[15:0] = mem[word_addr][31:16];
             end
+            default: begin
+                out[15:0] = mem[word_addr][31:16];
+            end
         endcase
 
         if(sign == 1)begin
@@ -66,9 +73,9 @@ always @(*) begin
         end else begin
             out[31:16] = 16'b0;
         end
-    end
-
-    if(data_width == `SIZE_WORD) begin
+    end else if(data_width == `SIZE_WORD) begin
+        out = mem[word_addr];
+    end else begin
         out = mem[word_addr];
     end
 
@@ -79,7 +86,7 @@ always @(posedge clk) begin
 
     if(is_mmio_addr) begin
         case(addr[17:2])
-            16'h100: begin
+            16'h40: begin
                 if(we[0] == 1) begin
                     GPIO[7:0] <= in[7:0];
                 end
@@ -95,6 +102,8 @@ always @(posedge clk) begin
                 if(we[3] == 1) begin
                     GPIO[31:24] <= in[31:24];
                 end
+            end
+            default: begin
             end
         endcase
     

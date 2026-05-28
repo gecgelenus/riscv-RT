@@ -15,6 +15,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
 
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
+    VL_OUT8(GPIO,5,0);
     CData/*5:0*/ top__DOT__exec_type;
     CData/*0:0*/ top__DOT__reg_we;
     CData/*2:0*/ top__DOT__data_mem_width;
@@ -27,10 +28,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*0:0*/ top__DOT__ins_ready;
     CData/*3:0*/ top__DOT__ins_we;
     CData/*3:0*/ top__DOT__data_we;
+    CData/*7:0*/ top__DOT__IRAM__DOT____Vlvbound_hdbe736b5__0;
+    CData/*7:0*/ top__DOT__IRAM__DOT____Vlvbound_hdbe0a39d__0;
+    CData/*7:0*/ top__DOT__IRAM__DOT____Vlvbound_hdbde14b2__0;
+    CData/*7:0*/ top__DOT__IRAM__DOT____Vlvbound_hdbdb999a__0;
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
     CData/*0:0*/ __VactContinue;
-    VL_OUT(GPIO,31,0);
     IData/*31:0*/ top__DOT__PC;
     IData/*31:0*/ top__DOT__data_in;
     IData/*31:0*/ top__DOT__data_out;
@@ -45,12 +49,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     IData/*31:0*/ top__DOT__data_mem_in;
     IData/*31:0*/ top__DOT__data_mem_out;
     IData/*31:0*/ top__DOT__jump_addr;
+    IData/*31:0*/ top__DOT__tmpGPIO;
     IData/*31:0*/ top__DOT__FU__DOT__PC;
     IData/*31:0*/ top__DOT__EU__DOT__target_addr;
     IData/*31:0*/ __VactIterCount;
-    VlUnpacked<IData/*31:0*/, 256> top__DOT__DRAM__DOT__mem;
+    VlUnpacked<IData/*31:0*/, 64> top__DOT__DRAM__DOT__mem;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__reg_file__DOT__regs;
-    VlUnpacked<IData/*31:0*/, 256> top__DOT__IRAM__DOT__mem;
+    VlUnpacked<IData/*31:0*/, 33> top__DOT__IRAM__DOT__mem;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VactTriggered;

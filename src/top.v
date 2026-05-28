@@ -1,6 +1,6 @@
 module top(
     input wire clk,
-    output reg [31:0] GPIO
+    output reg [5:0] GPIO
 );
 
 
@@ -34,6 +34,8 @@ wire jump_en;
 wire [31:0] jump_addr;
 wire ins_ready;
 
+wire [31:0] tmpGPIO;
+assign GPIO = tmpGPIO[5:0];
 
 
 
@@ -57,7 +59,7 @@ RAM_data DRAM(
     .we(data_mem_we),
     .data_width(data_mem_width),
     .sign(data_mem_sign),
-    .GPIO(GPIO)
+    .GPIO(tmpGPIO)
 );
 
 register_file reg_file(

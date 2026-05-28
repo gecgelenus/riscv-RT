@@ -36,6 +36,12 @@ wire [31:0] target_addr = $signed(rs0)+$signed(immediate);
         mem_out = 0;
         jump_en = 0;
         mem_addr = 0;
+        rd = 0;
+        reg_addr = 0;
+        reg_width = 0;
+        mem_width = 0;
+        mem_sign = 0;
+        jump_addr = 0;
 
     if(ins_ready == 1) begin
             case(exec_type)
@@ -360,6 +366,8 @@ wire [31:0] target_addr = $signed(rs0)+$signed(immediate);
                     mem_we = 0;
                 end
             endcase
+    end else begin
+    
     end
 
     end
