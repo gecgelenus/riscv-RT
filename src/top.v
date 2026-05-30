@@ -8,6 +8,7 @@ wire [31:0] PC;
 
 wire [31:0] data_in, data_out, data_addr;
 wire [31:0] ins_in, ins_out, ins_addr;
+wire [3:0] ins_we, data_we;
 
 wire [31:0] rs0_addr, rs1_addr, rd_addr;
 wire [31:0] rs0_data, rs1_data, rd_data;
@@ -23,8 +24,7 @@ wire [3:0] data_mem_we;
 wire [31:0] data_mem_addr;
 wire data_mem_sign;
 
-wire [31:0] data_mem_in;
-wire [31:0] data_mem_out;
+wire [31:0] data_mem_in, data_mem_out;
 
 wire data_mem_reg_we;
 wire [4:0] data_mem_reg_addr;
@@ -37,16 +37,11 @@ wire ins_ready;
 wire [31:0] tmpGPIO;
 assign GPIO = tmpGPIO[5:0];
 
-
-
-
 wire [31:0] fd_ins;   
 
-wire delay;
 
 
 
-wire [3:0] ins_we, data_we;
 
 
 RAM_data DRAM(
@@ -72,7 +67,6 @@ register_file reg_file(
 
     .mem_we(data_mem_reg_we),
     .reg_addr(data_mem_reg_addr),
-    .data_width(data_mem_reg_width),
     .mem_in(data_mem_out)
 );
 
@@ -91,8 +85,7 @@ fetch_unit FU(
     .ins_ram_addr(ins_addr),
     .jump_addr(jump_addr),
     .jump_en(jump_en),
-    .ins_ready(ins_ready),
-    .delay(delay)
+    .ins_ready(ins_ready)
 );
 
 decode_unit DU(
@@ -108,14 +101,13 @@ decode_unit DU(
 execution_unit EU(
     .clk(clk),
     .exec_type(exec_type),
-    .rs0(rs0_data),
-    .rs1(rs1_data),
-    .rd(rd_data),
+    .rs0_data(rs0_data),
+    .rs1_data(rs1_data),
+    .rd_data(rd_data),
     .immediate(immediate),
     .we(reg_we),
     .rd_addr(rd_addr),
     .PC(ins_addr),
-    .delay(delay),
     .mem_reg_we(data_mem_reg_we),
     .reg_addr(data_mem_reg_addr),
     .reg_width(data_mem_reg_width),

@@ -3,8 +3,7 @@
 .option norvc
 
 _start:
-    li sp, 0x0800
-
+    li sp, 0x1800
     jal ra, main
 
 _exit:

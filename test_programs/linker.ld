@@ -1,14 +1,42 @@
 OUTPUT_ARCH( "riscv" )
 ENTRY( _start )
+
+MEMORY
+{
+    IRAM (rx)  : ORIGIN = 0x00000000, LENGTH = 4K
+    DRAM (rw)  : ORIGIN = 0x00001000, LENGTH = 4K
+}
+
 SECTIONS
 {
-  . = 0x00000000;
-  
-  .text : {
-    *(.text.init)   
-    *(.text)
-  }
+    /* ── Instruction RAM ── */
+    .text : {
+        *(.text.init)
+        *(.text*)
+    } > IRAM
 
-  .data : { *(.data) }
-  .bss  : { *(.bss)  }
+
+    .bss : {
+        _bss_start = .;
+        *(.bss*)
+        *(.sbss*)
+        *(COMMON)
+        _bss_end = .;
+    } > DRAM
+    
+    .rodata : {
+        *(.rodata*)
+    } > DRAM
+    
+
+
+    /* ── Data RAM ── */
+    .data : {
+        _data_start = .;
+        *(.data*)
+        *(.sdata*)
+        _data_end = .;
+    } > DRAM
+
+
 }

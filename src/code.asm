@@ -2,12 +2,16 @@ xor x3, x3, x3
 xor x4, x4, x4
 xor x5, x5, x5
 
-addi x3, x3, 57
-addi x4, x4, 1424
-addi x5, x5, -1251
+li x3, 0x1000
+li x4, 0xDEADBEEF
+sw x4, 0(x3)
 
-sll x3, x3, 5
-srl x4, x4, 9
-sra x5, x5, 7
-
+lw x5, 0(x3)
+sw x5, 4(x3)
+lb x6, 4(x3)
+lbu x7, 4(x3)
+lh x8, 4(x3)
+sh x8, 8(x3)
+lhu x9, 4(x3)
+sb x9, 12(x3)
 

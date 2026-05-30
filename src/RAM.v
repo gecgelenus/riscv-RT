@@ -15,6 +15,7 @@ initial begin
 end
 
 
+
 always @(posedge clk) begin
     if(we[0] == 1) begin
         mem[word_addr][7:0] <= in[7:0];

@@ -16,6 +16,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
     VL_OUT8(GPIO,5,0);
+    CData/*3:0*/ top__DOT__ins_we;
+    CData/*3:0*/ top__DOT__data_we;
     CData/*5:0*/ top__DOT__exec_type;
     CData/*0:0*/ top__DOT__reg_we;
     CData/*2:0*/ top__DOT__data_mem_width;
@@ -26,11 +28,11 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*2:0*/ top__DOT__data_mem_reg_width;
     CData/*0:0*/ top__DOT__jump_en;
     CData/*0:0*/ top__DOT__ins_ready;
-    CData/*0:0*/ top__DOT__delay;
-    CData/*3:0*/ top__DOT__ins_we;
-    CData/*3:0*/ top__DOT__data_we;
+    CData/*0:0*/ top__DOT__DRAM__DOT__sign_bit;
     CData/*0:0*/ top__DOT__reg_file__DOT__mem_wait;
     CData/*4:0*/ top__DOT__reg_file__DOT__tmp_reg_addr;
+    CData/*4:0*/ top__DOT__EU__DOT__last_reg_addr;
+    CData/*4:0*/ top__DOT__EU__DOT__tmp_last_reg_addr;
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
     CData/*0:0*/ __VactContinue;
@@ -61,8 +63,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     VlUnpacked<IData/*31:0*/, 1024> top__DOT__IRAM__DOT__mem;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
     VlTriggerVec<1> __VstlTriggered;
-    VlTriggerVec<1> __VactTriggered;
-    VlTriggerVec<1> __VnbaTriggered;
+    VlTriggerVec<2> __VactTriggered;
+    VlTriggerVec<2> __VnbaTriggered;
 
     // INTERNAL VARIABLES
     Vtop__Syms* const vlSymsp;
