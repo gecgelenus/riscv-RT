@@ -1,43 +1,5 @@
 `include "defines.v"
 
-function automatic [31:0] shift_op;
-    input [31:0] val;
-    input [4:0]  shamt;   // shift amount (rs1[4:0])
-    input        right;   // 0 = left, 1 = right
-    input        arith;   // 1 = arithmetic (sign-extend)
-
-    reg [31:0] s;
-    reg        sign;
-    begin
-        sign = arith & val[31];
-        s    = val;
-
-        // Reverse for left shifts — do everything as right shift, then reverse
-        if (!right) begin
-            s = {s[0],  s[1],  s[2],  s[3],  s[4],  s[5],  s[6],  s[7],
-                 s[8],  s[9],  s[10], s[11], s[12], s[13], s[14], s[15],
-                 s[16], s[17], s[18], s[19], s[20], s[21], s[22], s[23],
-                 s[24], s[25], s[26], s[27], s[28], s[29], s[30], s[31]};
-        end
-
-        // 5 independent stages — each is a 2-to-1 mux, synthesises to 1 LUT per bit
-        if (shamt[0]) s = {sign,        s[31:1]};
-        if (shamt[1]) s = {{2{sign}},   s[31:2]};
-        if (shamt[2]) s = {{4{sign}},   s[31:4]};
-        if (shamt[3]) s = {{8{sign}},   s[31:8]};
-        if (shamt[4]) s = {{16{sign}},  s[31:16]};
-
-        // Reverse back for left shifts
-        if (!right) begin
-            s = {s[0],  s[1],  s[2],  s[3],  s[4],  s[5],  s[6],  s[7],
-                 s[8],  s[9],  s[10], s[11], s[12], s[13], s[14], s[15],
-                 s[16], s[17], s[18], s[19], s[20], s[21], s[22], s[23],
-                 s[24], s[25], s[26], s[27], s[28], s[29], s[30], s[31]};
-        end
-
-        shift_op = s;
-    end
-endfunction
 
 
 module execution_unit(
@@ -63,8 +25,7 @@ module execution_unit(
     output reg mem_sign,
     output reg delay,
     output reg jump_en,
-    output reg [31:0] jump_addr,
-    output wire [31:0] GPIO
+    output reg [31:0] jump_addr
 );
 
 wire [31:0] target_addr = $signed(rs0)+$signed(immediate);
@@ -142,17 +103,17 @@ wire [31:0] jump_addr_precalc = PC - 4 + $signed(immediate);
 
                 `EXEC_SLL: begin
                     we = 1;
-                    rd = shift_op(rs0, rs1[4:0], 1'b0, 1'b0);
+                    rd = rs0 << rs1;
                 end
 
                 `EXEC_SRL: begin
                     we = 1;
-                    rd = shift_op(rs0, rs1[4:0], 1'b1, 1'b0);
+                    rd = rs0 >> rs1;
                 end
 
                 `EXEC_SRA: begin
                     we = 1;
-                    rd = shift_op(rs0, rs1[4:0], 1'b1, 1'b1);
+                    rd = $signed(rs0) >>> rs1;
                 end
 
                 `EXEC_ADDI: begin

@@ -26,10 +26,10 @@ always @(posedge clk) begin
 
     out <= mem[word_addr];
 
-    if(is_mmio_addr) begin
+    if(is_mmio_addr && we != 4'b0000) begin
         GPIO <= in;
     end
-    
+    if (!is_mmio_addr) begin    
     if(we[0] == 1) begin
         mem[word_addr][7:0] <= in[7:0];
     end
@@ -46,7 +46,7 @@ always @(posedge clk) begin
         mem[word_addr][31:24] <= in[31:24];
     end
 
-    
+    end
 
     
 end

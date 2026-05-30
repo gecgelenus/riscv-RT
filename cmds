@@ -1,2 +1,0 @@
-verilator -Wall -cc -f files.f --top-module top --exe main.cpp -Wno-fatal --trace
-make -C obj_dir -f Vtop.mk Vtop

@@ -15,7 +15,6 @@
 
 // INCLUDE MODULE CLASSES
 #include "Vtop___024root.h"
-#include "Vtop___024unit.h"
 
 // SYMS CLASS (contains all model state)
 class alignas(VL_CACHE_LINE_BYTES)Vtop__Syms final : public VerilatedSyms {

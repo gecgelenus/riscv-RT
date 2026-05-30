@@ -128,8 +128,7 @@ execution_unit EU(
 
     .jump_addr(jump_addr),
     .jump_en(jump_en),
-    .ins_ready(ins_ready),
-    .GPIO(tmpGPIO)
+    .ins_ready(ins_ready)
 );
 
 

@@ -31,12 +31,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*3:0*/ top__DOT__data_we;
     CData/*0:0*/ top__DOT__reg_file__DOT__mem_wait;
     CData/*4:0*/ top__DOT__reg_file__DOT__tmp_reg_addr;
-    CData/*4:0*/ __Vfunc_shift_op__0__shamt;
-    CData/*0:0*/ __Vfunc_shift_op__0__sign;
-    CData/*4:0*/ __Vfunc_shift_op__1__shamt;
-    CData/*0:0*/ __Vfunc_shift_op__1__sign;
-    CData/*4:0*/ __Vfunc_shift_op__2__shamt;
-    CData/*0:0*/ __Vfunc_shift_op__2__sign;
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
     CData/*0:0*/ __VactContinue;
@@ -61,15 +55,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     IData/*31:0*/ top__DOT__EU__DOT__unsigned_addr_load;
     IData/*31:0*/ top__DOT__EU__DOT__addr_store;
     IData/*31:0*/ top__DOT__EU__DOT__jump_addr_precalc;
-    IData/*31:0*/ __Vfunc_shift_op__0__Vfuncout;
-    IData/*31:0*/ __Vfunc_shift_op__0__val;
-    IData/*31:0*/ __Vfunc_shift_op__0__s;
-    IData/*31:0*/ __Vfunc_shift_op__1__Vfuncout;
-    IData/*31:0*/ __Vfunc_shift_op__1__val;
-    IData/*31:0*/ __Vfunc_shift_op__1__s;
-    IData/*31:0*/ __Vfunc_shift_op__2__Vfuncout;
-    IData/*31:0*/ __Vfunc_shift_op__2__val;
-    IData/*31:0*/ __Vfunc_shift_op__2__s;
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<IData/*31:0*/, 1024> top__DOT__DRAM__DOT__mem;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__reg_file__DOT__regs;
