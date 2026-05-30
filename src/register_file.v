@@ -5,8 +5,8 @@ module register_file(
     input wire [4:0] rd_addr,
     input wire [31:0] rd_data,
     input wire we,
-    output reg [31:0] rs0_data,
-    output reg [31:0] rs1_data,
+    output wire [31:0] rs0_data,
+    output wire [31:0] rs1_data,
 
     input wire mem_we,
     input wire [4:0] reg_addr,

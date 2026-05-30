@@ -4,6 +4,7 @@
 #include "Vtop__pch.h"
 #include "Vtop.h"
 #include "Vtop___024root.h"
+#include "Vtop___024unit.h"
 
 // FUNCTIONS
 Vtop__Syms::~Vtop__Syms()
@@ -18,7 +19,7 @@ Vtop__Syms::Vtop__Syms(VerilatedContext* contextp, const char* namep, Vtop* mode
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(98);
+        Verilated::stackCheck(130);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-12);
     _vm_contextp__->timeprecision(-12);

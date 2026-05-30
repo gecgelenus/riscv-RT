@@ -5,7 +5,7 @@ int main() {
 
     while (1)
     {
-        __asm__ volatile ("li t0, 9000000\n\t"
+        __asm__ volatile ("li t0, 9000\n\t"
         "2:\n\t"
         "addi t0, t0, -1\n\t"
         "bnez t0, 2b\n\t"
@@ -15,7 +15,7 @@ int main() {
     );
         *LED_REG_ADDR = 0x1;
 
-        __asm__ volatile ("li t0, 9000000\n\t"
+        __asm__ volatile ("li t0, 9000\n\t"
         "2:\n\t"
         "addi t0, t0, -1\n\t"
         "bnez t0, 2b\n\t"

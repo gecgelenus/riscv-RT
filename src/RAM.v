@@ -6,9 +6,9 @@ module RAM(
     output reg [31:0] out
 );
 
-reg [31:0] mem [0:32];
+reg [31:0] mem [0:1023];
 
-wire [7:0] word_addr = addr[9:2];
+wire [9:0] word_addr = addr[11:2];
 
 initial begin
     $readmemh("mem.hex", mem);

@@ -1,0 +1,111 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Running command `
+  read_verilog -sv src/top.v src/fetch_unit.v src/register_file.v     src/decode_unit.v src/RAM.v src/execution_unit.v src/RAM_data.v src/defines.v;
+  proc;
+  flatten;
+  opt -purge;
+  stat;
+' --
+
+1. Executing Verilog-2005 frontend: src/top.v
+Parsing SystemVerilog input from `src/top.v' to AST representation.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: src/fetch_unit.v
+Parsing SystemVerilog input from `src/fetch_unit.v' to AST representation.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: src/register_file.v
+Parsing SystemVerilog input from `src/register_file.v' to AST representation.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: src/decode_unit.v
+Parsing SystemVerilog input from `src/decode_unit.v' to AST representation.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: src/RAM.v
+Parsing SystemVerilog input from `src/RAM.v' to AST representation.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: src/execution_unit.v
+Parsing SystemVerilog input from `src/execution_unit.v' to AST representation.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: src/RAM_data.v
+Parsing SystemVerilog input from `src/RAM_data.v' to AST representation.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: src/defines.v
+Parsing SystemVerilog input from `src/defines.v' to AST representation.
+Successfully finished Verilog frontend.
+
+9. Executing PROC pass (convert processes to netlists).
+
+9.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+9.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+9.4. Executing PROC_INIT pass (extract init attributes).
+
+9.5. Executing PROC_ARST pass (detect async resets in processes).
+
+9.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+9.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+9.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+9.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+9.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+9.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.12. Executing OPT_EXPR pass (perform const folding).
+
+10. Executing FLATTEN pass (flatten design).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Removed 0 multiplexer ports.
+
+11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+Performed a total of 0 changes.
+
+11.5. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+11.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+
+11.8. Executing OPT_EXPR pass (perform const folding).
+
+11.9. Finished OPT passes. (There is nothing left to do.)
+
+12. Printing statistics.
+
+End of script. Logfile hash: 8b25fa9039, CPU: user 0.01s system 0.01s, MEM: 9.99 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 51% 3x opt_expr (0 sec), 26% 1x opt_clean (0 sec), ...

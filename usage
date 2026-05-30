@@ -1,0 +1,168 @@
+=== execution_unit ===
+
+   Number of wires:               6525
+   Number of wire bits:          10297
+   Number of public wires:        6525
+   Number of public wire bits:   10297
+   Number of ports:                 20
+   Number of port bits:            288
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               7309
+     ALU                           400
+     GND                             1
+     IBUF                          141
+     LUT1                         2059
+     LUT2                          266
+     LUT3                          521
+     LUT4                         1156
+     MUX2_LUT5                    1580
+     MUX2_LUT6                     641
+     MUX2_LUT7                     279
+     MUX2_LUT8                     117
+     OBUF                          147
+     VCC                             1
+
+
+TMP
+
+=== execution_unit ===
+
+   Number of wires:               6267
+   Number of wire bits:           9363
+   Number of public wires:        6267
+   Number of public wire bits:    9363
+   Number of ports:                 20
+   Number of port bits:            288
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               7079
+     ALU                           400
+     GND                             1
+     IBUF                          141
+     LUT1                         2048
+     LUT2                          248
+     LUT3                          499
+     LUT4                         1104
+     MUX2_LUT5                    1503
+     MUX2_LUT6                     606
+     MUX2_LUT7                     267
+     MUX2_LUT8                     114
+     OBUF                          147
+     VCC                             1
+
+
+signed addr load
+
+=== execution_unit ===
+
+   Number of wires:               5780
+   Number of wire bits:           8820
+   Number of public wires:        5780
+   Number of public wire bits:    8820
+   Number of ports:                 20
+   Number of port bits:            288
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6577
+     ALU                           400
+     GND                             1
+     IBUF                          141
+     LUT1                         1804
+     LUT2                          229
+     LUT3                          541
+     LUT4                         1082
+     MUX2_LUT5                    1354
+     MUX2_LUT6                     537
+     MUX2_LUT7                     240
+     MUX2_LUT8                     100
+     OBUF                          147
+     VCC                             1
+
+unsigned addr load
+
+=== execution_unit ===
+
+   Number of wires:               6304
+   Number of wire bits:           9490
+   Number of public wires:        6304
+   Number of public wire bits:    9490
+   Number of ports:                 20
+   Number of port bits:            288
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               7096
+     ALU                           400
+     GND                             1
+     IBUF                          141
+     LUT1                         1902
+     LUT2                          309
+     LUT3                          520
+     LUT4                         1169
+     MUX2_LUT5                    1521
+     MUX2_LUT6                     623
+     MUX2_LUT7                     261
+     MUX2_LUT8                     101
+     OBUF                          147
+     VCC                             1
+
+addr store
+
+=== execution_unit ===
+
+   Number of wires:               5776
+   Number of wire bits:           8823
+   Number of public wires:        5776
+   Number of public wire bits:    8823
+   Number of ports:                 20
+   Number of port bits:            288
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6540
+     ALU                           368
+     GND                             1
+     IBUF                          141
+     LUT1                         1805
+     LUT2                          240
+     LUT3                          505
+     LUT4                         1066
+     MUX2_LUT5                    1366
+     MUX2_LUT6                     551
+     MUX2_LUT7                     251
+     MUX2_LUT8                      98
+     OBUF                          147
+     VCC                             1
+
+
+jump addr precalc 
+
+=== execution_unit ===
+
+   Number of wires:               5737
+   Number of wire bits:           8818
+   Number of public wires:        5737
+   Number of public wire bits:    8818
+   Number of ports:                 20
+   Number of port bits:            288
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6530
+     ALU                           368
+     GND                             1
+     IBUF                          141
+     LUT1                         1840
+     LUT2                          243
+     LUT3                          482
+     LUT4                         1064
+     MUX2_LUT5                    1362
+     MUX2_LUT6                     545
+     MUX2_LUT7                     236
+     MUX2_LUT8                     100
+     OBUF                          147
+     VCC                             1
