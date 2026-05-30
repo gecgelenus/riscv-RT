@@ -26,12 +26,11 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*2:0*/ top__DOT__data_mem_reg_width;
     CData/*0:0*/ top__DOT__jump_en;
     CData/*0:0*/ top__DOT__ins_ready;
+    CData/*0:0*/ top__DOT__delay;
     CData/*3:0*/ top__DOT__ins_we;
     CData/*3:0*/ top__DOT__data_we;
-    CData/*7:0*/ top__DOT__IRAM__DOT____Vlvbound_hdbe736b5__0;
-    CData/*7:0*/ top__DOT__IRAM__DOT____Vlvbound_hdbe0a39d__0;
-    CData/*7:0*/ top__DOT__IRAM__DOT____Vlvbound_hdbde14b2__0;
-    CData/*7:0*/ top__DOT__IRAM__DOT____Vlvbound_hdbdb999a__0;
+    CData/*0:0*/ top__DOT__reg_file__DOT__mem_wait;
+    CData/*4:0*/ top__DOT__reg_file__DOT__tmp_reg_addr;
     CData/*4:0*/ __Vfunc_shift_op__0__shamt;
     CData/*0:0*/ __Vfunc_shift_op__0__sign;
     CData/*4:0*/ __Vfunc_shift_op__1__shamt;
@@ -72,9 +71,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     IData/*31:0*/ __Vfunc_shift_op__2__val;
     IData/*31:0*/ __Vfunc_shift_op__2__s;
     IData/*31:0*/ __VactIterCount;
-    VlUnpacked<IData/*31:0*/, 64> top__DOT__DRAM__DOT__mem;
+    VlUnpacked<IData/*31:0*/, 1024> top__DOT__DRAM__DOT__mem;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__reg_file__DOT__regs;
-    VlUnpacked<IData/*31:0*/, 33> top__DOT__IRAM__DOT__mem;
+    VlUnpacked<IData/*31:0*/, 1024> top__DOT__IRAM__DOT__mem;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VactTriggered;

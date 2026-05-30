@@ -20,15 +20,27 @@ module register_file(
     assign rs0_data = (rs0_addr == 5'b0) ? 32'b0 : regs[rs0_addr];
     assign rs1_data = (rs1_addr == 5'b0) ? 32'b0 : regs[rs1_addr];
 
+    reg mem_wait;
+    reg [4:0] tmp_reg_addr;
+
     
 
     always @(posedge clk) begin
-        
+        mem_wait <= 0;
+
+        if(mem_wait == 1) begin
+            mem_wait <= 0;
+            regs[tmp_reg_addr] <= mem_in;
+        end
+
         if(we == 1) begin
             regs[rd_addr] <= rd_data;
         end else if (mem_we == 1) begin
-            regs[reg_addr] <= mem_in;
+            tmp_reg_addr <= reg_addr;
+            mem_wait <= 1;
         end
+
+        
     end
 
 

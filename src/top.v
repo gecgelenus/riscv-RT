@@ -1,6 +1,6 @@
 module top(
     input wire clk,
-    output reg [5:0] GPIO
+    output wire [5:0] GPIO
 );
 
 
@@ -41,6 +41,8 @@ assign GPIO = tmpGPIO[5:0];
 
 
 wire [31:0] fd_ins;   
+
+wire delay;
 
 
 
@@ -89,7 +91,8 @@ fetch_unit FU(
     .ins_ram_addr(ins_addr),
     .jump_addr(jump_addr),
     .jump_en(jump_en),
-    .ins_ready(ins_ready)
+    .ins_ready(ins_ready),
+    .delay(delay)
 );
 
 decode_unit DU(
@@ -112,7 +115,7 @@ execution_unit EU(
     .we(reg_we),
     .rd_addr(rd_addr),
     .PC(ins_addr),
-
+    .delay(delay),
     .mem_reg_we(data_mem_reg_we),
     .reg_addr(data_mem_reg_addr),
     .reg_width(data_mem_reg_width),

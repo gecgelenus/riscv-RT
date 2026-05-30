@@ -18,7 +18,7 @@ wire [9:0] word_addr = addr[11:2];
 
 
 
-wire is_mmio_addr = (addr >= 32'h100);
+wire is_mmio_addr = (addr >= 32'h1000);
 
 
 
@@ -26,7 +26,9 @@ always @(posedge clk) begin
 
     out <= mem[word_addr];
 
-    GPIO <= in;
+    if(is_mmio_addr) begin
+        GPIO <= in;
+    end
     
     if(we[0] == 1) begin
         mem[word_addr][7:0] <= in[7:0];

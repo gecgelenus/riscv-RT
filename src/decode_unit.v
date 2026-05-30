@@ -7,7 +7,7 @@ module decode_unit(
     output wire [4:0] rs0,
     output wire [4:0] rs1,
     output wire [4:0] rd,
-    output wire [31:0] immediate
+    output reg [31:0] immediate
 );
 
 assign rs0 = fd_ins[`RS0];

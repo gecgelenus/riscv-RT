@@ -61,7 +61,7 @@ module execution_unit(
     output reg [31:0] mem_out,
     output reg [2:0] mem_width,
     output reg mem_sign,
-
+    output reg delay,
     output reg jump_en,
     output reg [31:0] jump_addr,
     output wire [31:0] GPIO
@@ -80,8 +80,6 @@ wire [31:0] jump_addr_precalc = PC - 4 + $signed(immediate);
 
 
 
-
-
     always @(*) begin
         we = 0;
         mem_reg_we = 0;
@@ -95,7 +93,7 @@ wire [31:0] jump_addr_precalc = PC - 4 + $signed(immediate);
         mem_width = 0;
         mem_sign = 0;
         jump_addr = 0;
-        GPIO[0] = 1;
+        delay = 0;
 
     if(ins_ready == 1) begin
             case(exec_type)
@@ -228,6 +226,7 @@ wire [31:0] jump_addr_precalc = PC - 4 + $signed(immediate);
                     mem_addr = signed_addr_load;
                     mem_width = `SIZE_BYTE;
                     mem_sign = 1;
+                    delay = 1;
 
                 end
 
@@ -240,6 +239,8 @@ wire [31:0] jump_addr_precalc = PC - 4 + $signed(immediate);
                     mem_addr = unsigned_addr_load;
                     mem_width = `SIZE_BYTE;
                     mem_sign = 0;
+                    delay = 1;
+
 
                 end
 
@@ -251,6 +252,7 @@ wire [31:0] jump_addr_precalc = PC - 4 + $signed(immediate);
                     mem_addr = signed_addr_load;
                     mem_width = `SIZE_HALF_WORD;
                     mem_sign = 1;
+                    delay = 1;
 
                 end
 
@@ -262,6 +264,8 @@ wire [31:0] jump_addr_precalc = PC - 4 + $signed(immediate);
                     mem_addr = unsigned_addr_load;
                     mem_width = `SIZE_HALF_WORD;
                     mem_sign = 0;
+                    delay = 1;
+
                 end
 
                 `EXEC_LOAD_WORD: begin
@@ -272,6 +276,8 @@ wire [31:0] jump_addr_precalc = PC - 4 + $signed(immediate);
                     mem_addr = signed_addr_load;
                     mem_width = `SIZE_WORD;
                     mem_sign = 0;
+                    delay = 1;
+
                 end
 
                 `EXEC_STORE_BYTE: begin

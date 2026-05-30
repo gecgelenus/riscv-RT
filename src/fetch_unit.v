@@ -2,6 +2,7 @@ module fetch_unit(
     input wire clk,
     input wire [31:0] ins_in,
     input wire jump_en,
+    input wire delay,
     input wire [31:0] jump_addr,
     output wire [31:0] ins_ram_addr,
     output wire [31:0] ins_out,
@@ -23,8 +24,13 @@ module fetch_unit(
             PC <= jump_addr;
             ins_ready <= 0;
         end else begin
-            PC <= PC+4;
-            ins_ready <= 1;
+            if(!delay) begin
+                PC <= PC+4;
+                ins_ready <= 1;
+            end else begin
+                ins_ready <= 0;
+            end
+            
         end
     end
 
